@@ -37,5 +37,36 @@ namespace ApiProjeKampi.WebApi.Controllers
             _context.SaveChanges();
             return Ok("Ekleme İşlemi Başarılı");
         }
+        [HttpDelete]
+        public IActionResult DeleteContact(int id)
+        {
+            var value = _context.Contacts.Find(id);
+            _context.Contacts.Remove(value);
+            _context.SaveChanges();
+            return Ok("Silme işlemi başarılı");
+        }
+
+        [HttpGet("GetContact")]
+        public IActionResult GetContact(int id)
+        {
+            var value=_context.Contacts.Find(id);
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateContact(UpdateContactDto updateContactDto)
+        {
+            Contact contact=new Contact();
+            contact.Email=updateContactDto.Email;
+            contact.Address=updateContactDto.Address;
+            contact.Phone=updateContactDto.Phone;
+            contact.ContactID=updateContactDto.ContactID;
+            contact.MapLocation=updateContactDto.MapLocation;
+            contact.OpenHours=updateContactDto.OpenHours;
+            _context.Contacts.Update(contact);
+            _context.SaveChanges();
+            return Ok("Güncelleme işlemi başarılı");
+        }
+
     }
 }
