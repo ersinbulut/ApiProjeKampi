@@ -30,6 +30,7 @@ namespace ApiProjeKampi.WebApi.Controllers
         {
             var value = _mapper.Map<Feature>(createFeatureDto);
             _context.Features.Add(value);
+            _context.SaveChanges();
             return Ok("Ekleme işlemi başarılı");
         }
 
@@ -38,6 +39,7 @@ namespace ApiProjeKampi.WebApi.Controllers
         {
             var value = _context.Features.Find(id);
             _context.Features.Remove(value);
+            _context.SaveChanges();
             return Ok("Silme İşlemi başarılı");
         }
 
@@ -53,6 +55,7 @@ namespace ApiProjeKampi.WebApi.Controllers
         {
             var value=_mapper.Map<Feature>(updateFeatureDto);
             _context.Features.Update(value);
+            _context.SaveChanges();
             return Ok("Güncelleme işlemi başarılı");
         }
     }
