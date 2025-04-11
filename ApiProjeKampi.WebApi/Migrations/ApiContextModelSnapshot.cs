@@ -266,6 +266,31 @@ namespace ApiProjeKampi.WebApi.Migrations
                     b.ToTable("Reservations");
                 });
 
+            modelBuilder.Entity("ApiProjeKampi.WebApi.Entities.Service", b =>
+                {
+                    b.Property<int>("ServiceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceID"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IconUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ServiceID");
+
+                    b.ToTable("Services");
+                });
+
             modelBuilder.Entity("ApiProjeKampi.WebApi.Entities.Testimonial", b =>
                 {
                     b.Property<int>("TestimonialID")
