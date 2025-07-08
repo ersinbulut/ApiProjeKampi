@@ -7,7 +7,7 @@ namespace ApiProjeKampi.WebApi.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DEV;Initial Catalog=ApiYummyDb;Integrated Security=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=BULUTS;Initial Catalog=ApiYummyDb;Integrated Security=True;TrustServerCertificate=True;");
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Chef> Chefs { get; set; }
@@ -21,5 +21,6 @@ namespace ApiProjeKampi.WebApi.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<YummyEvent> YummyEvents { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<About> Abouts { get; set; }
     }
 }
