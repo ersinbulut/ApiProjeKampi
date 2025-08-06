@@ -1,6 +1,6 @@
 ﻿using ApiProjeKampi.WebApi.Entities;
 using Microsoft.EntityFrameworkCore;
-
+//dd
 namespace ApiProjeKampi.WebApi.Context
 {
     public class ApiContext : DbContext
